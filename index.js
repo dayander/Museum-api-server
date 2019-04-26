@@ -8,12 +8,27 @@ const router = require('./routes');
 const cors = require('cors');
 const config = require('./config');
 const cookieParser = require('cookie-parser');
-var multer = require('multer');
+
+//Reading Images and putting on requests
 
 
 
 app.use(morgan('combined'));
 app.use(bodyParser.json());
+
+//image uploads
+app.use(express.static(path.join(__dirname, './public')));
+
+
+const publicOptions = {
+    origin: function (origin, callback) {
+        callback(null, true)
+    },
+    methods: "GET"
+};
+
+
+
 
 
 

@@ -7,7 +7,9 @@ const mongoose = require('mongoose');
 
 let imageSchema = mongoose.Schema({
     img: {data: Buffer, contentType: String},
-    altText: String
+    altText: String,
+    pathToImg: String,
+    fileName: String,
 });
 
 

@@ -1,16 +1,35 @@
 const mongoose = require('mongoose');
 
-const Image = require('./image').schema;
 
 
+
+
+let imageSchema = mongoose.Schema({
+    img: {data: Buffer, contentType: String},
+    altText: String,
+    pathToImg: String,
+    fileName: String,
+});
+
+
+let appSectionWithImageSchema = mongoose.Schema({
+    exhibitID: String,
+    sectionHeading: String,
+    sectionImageAltText: String,
+    sectionImagePath:String,
+    sectionDescription: String,
+    order: Number,
+    newImage: Boolean
+});
 
 
 
     let exhibitSchema = mongoose.Schema({
     name: String,
-    title: String,
+    subHead: String,
+    mainImg: {altText:String, path: String, filename:String, newImage: Boolean},
     description: String,
-    img: {type: mongoose.Schema.Types.ObjectId, ref: 'Image'},
+    appSections:[appSectionWithImageSchema],
     published: Boolean
 
 
