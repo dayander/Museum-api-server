@@ -94,6 +94,8 @@ exports.updateExhibit = function (req, res, next) {
 
 
     }
+    }else{
+        exhibit.mainImg.path = body.mainImg.path
     }
 
 
@@ -131,6 +133,15 @@ exports.updateExhibit = function (req, res, next) {
                     newImage: false
                 });
 
+            }else{
+                exhibit.appSections.push({
+                    sectionHeading: body.appSections[section].sectionHeading,
+                    sectionImagePath: body.appSections[section].sectionImagePath,
+                    sectionImageAltText: body.appSections[section].sectionImageAltText,
+                    sectionDescription: body.appSections[section].sectionDescription,
+                    order: body.appSections[section].order,
+                    newImage: false
+                });
             }
         }
 
@@ -306,4 +317,13 @@ exports.deleteExhibit = function (req, res, next) {
         
     })
     
+}
+
+
+exports.deleteAppSection = function (req, res, next) {
+
+    const idToDelete = req.params.id;
+
+
+
 }
