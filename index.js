@@ -8,6 +8,7 @@ const router = require('./routes');
 const cors = require('cors');
 const config = require('./config');
 const cookieParser = require('cookie-parser');
+require('./models/exhibits');
 
 //Reading Images and putting on requests
 

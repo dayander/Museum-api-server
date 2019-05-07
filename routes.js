@@ -6,6 +6,7 @@ const requireSignin = passport.authenticate('local', {session: false});
 
 const userHandler = require('./handlers/userHandler');
 const exhibitHandler = require('./handlers/exhibitsHandler');
+const roomHandler = require('./handlers/roomHandler');
 
 const path = require('path');
 const fs = require('fs');
@@ -56,6 +57,13 @@ app.delete('/exhibits/:id', exhibitHandler.deleteExhibit);
 app.get('/exhibits',  exhibitHandler.getExhibits );
 
 app.post('/newexhibit', upload.any('image'),  exhibitHandler.newExhibit)
+
+
+app.get('/getdevices', roomHandler.getDevices);
+app.post('/newroom', roomHandler.newRoom);
+app.get('/getrooms', roomHandler.getRooms)
+app.get('/rooms/:id', roomHandler.getSingleRoom)
+app.post('/rooms/:id', roomHandler.updateRoom)
 
 
 
